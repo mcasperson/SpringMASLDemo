@@ -2,6 +2,11 @@
  * Globals
  */
 
+pre {
+    text-align: left;
+    color: white;
+}
+
 /* Links */
 a,
 a:focus,

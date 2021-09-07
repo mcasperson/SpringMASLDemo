@@ -21,8 +21,7 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/", "/*.js", "/*.css").permitAll()
                     .anyRequest().authenticated()
                 .and()
-                    .oauth2Login()
-                    .loginPage("/login").permitAll();
+                    .oauth2Login();
 
     }
 }

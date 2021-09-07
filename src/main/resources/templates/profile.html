@@ -13,18 +13,14 @@
     <header class="masthead mb-auto">
         <div class="inner">
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link active" href="/profile">Profile</a>
             </nav>
         </div>
     </header>
 
     <main role="main" class="inner cover">
-        <h1 class="cover-heading">MASL and Spring Demo</h1>
-        <p class="lead">A sample application demonstrating how to integrate Spring Boot and the Microsoft Authentication Library (MSAL).</p>
-        <p class="lead">
-            <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
+        <pre th:text="${tokenAttributes}"></pre>
     </main>
 </div>
 
