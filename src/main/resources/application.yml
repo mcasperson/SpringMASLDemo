@@ -1,10 +1,13 @@
 azure:
   activedirectory:
-    # Specifies your Active Directory ID:
-    tenant-id: ${TENANT_ID}
-    # Specifies your App Registration's Application ID:
-    client-id: ${CLIENT_ID}
-    # Specifies your App Registration's secret key:
-    client-secret: ${CLIENT_SECRET}
-    # Specifies the post-log-out-redirect-uri, where to return your app after logout.
-    post-logout-redirect-uri: http://localhost:8080
+    b2c:
+      client-id: ${CLIENT_ID}
+      client-secret: ${CLIENT_SECRET}
+      logout-success-url: http://localhost:8080
+      user-flows:
+        password-reset: B2C_1_resetpassword
+        profile-edit: B2C_1_profileedit
+        sign-up-or-sign-in: B2C_1_signuporsignin
+      base-uri: https://mysampleazureorganization.b2clogin.com/mysampleazureorganization.onmicrosoft.com/
+      login-flow: sign-up-or-sign-in
+      reply-url: http://localhost:8080/login/oauth2/code/

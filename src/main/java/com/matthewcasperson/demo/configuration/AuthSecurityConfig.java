@@ -1,27 +1,28 @@
 package com.matthewcasperson.demo.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 
 @EnableWebSecurity
-@Configuration
 public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
+    private final AADB2COidcLoginConfigurer configurer;
+
+    public AuthSecurityConfig(AADB2COidcLoginConfigurer configurer) {
+        this.configurer = configurer;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
         http
-                .authorizeRequests()
-                    .antMatchers("/", "/*.js", "/*.css").permitAll()
-                    .anyRequest().authenticated()
-                .and()
-                    .oauth2Login();
-
+            .authorizeRequests()
+                .antMatchers("/", "/login", "/*.js", "/*.css").permitAll()
+                .anyRequest().authenticated()
+            .and()
+            .apply(configurer);
+        // @formatter:on
     }
 }
