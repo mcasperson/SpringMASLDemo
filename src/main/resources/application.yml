@@ -1,3 +1,4 @@
+# src/main/resources/application.yml
 azure:
   activedirectory:
     b2c:
