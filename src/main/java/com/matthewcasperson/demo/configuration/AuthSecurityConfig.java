@@ -1,3 +1,5 @@
+// src/main/java/com/matthewcasperson/demo/configuration/AuthSecurityConfig.java
+
 package com.matthewcasperson.demo.configuration;
 
 import com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
