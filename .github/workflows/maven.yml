@@ -49,6 +49,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/auth0demo-0.0.${{ github.run_number }}.jar
-          asset_name: auth0demo-0.0.${{ github.run_number }}.jar
+          asset_path: target/demo-0.0.${{ github.run_number }}.jar
+          asset_name: demo-0.0.${{ github.run_number }}.jar
           asset_content_type: application/zip
