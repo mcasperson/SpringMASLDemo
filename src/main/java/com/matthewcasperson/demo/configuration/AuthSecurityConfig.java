@@ -19,7 +19,7 @@ public class AuthSecurityConfig extends AADWebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/", "/login", "/*.js", "/*.css").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated().and().oauth2Login();
         // @formatter:on
     }
 }
