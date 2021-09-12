@@ -25,6 +25,7 @@ public class ProfileController {
         this.clientService = clientService;
     }
 
+    // https://spring.io/blog/2021/01/13/the-latest-on-azure-active-directory-integration
     @GetMapping("/profile")
     public ModelAndView profile(@AuthenticationPrincipal OidcUser principal, @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient client) {
         ModelAndView mav = new ModelAndView("profile");
