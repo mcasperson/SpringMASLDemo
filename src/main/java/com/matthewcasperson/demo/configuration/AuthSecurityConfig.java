@@ -2,29 +2,24 @@
 
 package com.matthewcasperson.demo.configuration;
 
-import com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer;
+import com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @EnableWebSecurity
-public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final AADB2COidcLoginConfigurer configurer;
-
-    public AuthSecurityConfig(AADB2COidcLoginConfigurer configurer) {
-        this.configurer = configurer;
-    }
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AuthSecurityConfig extends AADWebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
         // @formatter:off
         http
             .authorizeRequests()
                 .antMatchers("/", "/login", "/*.js", "/*.css").permitAll()
-                .anyRequest().authenticated()
-            .and()
-            .apply(configurer);
+                .anyRequest().authenticated();
         // @formatter:on
     }
 }

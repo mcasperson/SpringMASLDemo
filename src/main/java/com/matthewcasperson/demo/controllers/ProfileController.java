@@ -20,12 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ProfileController {
 
-    private OAuth2AuthorizedClientService clientService;
-
-    @Autowired
-    public ProfileController(OAuth2AuthorizedClientService clientService) {
-        this.clientService = clientService;
-    }
 
     @GetMapping("/profile")
     public ModelAndView profile(@AuthenticationPrincipal OidcUser principal) {
@@ -41,15 +35,7 @@ public class ProfileController {
                         .getContext()
                         .getAuthentication();
 
-        OAuth2AuthenticationToken oauthToken =
-                (OAuth2AuthenticationToken) authentication;
-
-        OAuth2AuthorizedClient client =
-                clientService.loadAuthorizedClient(
-                        oauthToken.getAuthorizedClientRegistrationId(),
-                        oauthToken.getName());
-
-        return client.getAccessToken().getTokenValue();
+        return "";
     }
 
     private String getObjectAsJSON(Object attributes) {

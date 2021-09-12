@@ -1,12 +1,9 @@
 # src/main/resources/application.yml
+# Specifies your Active Directory ID:
 azure:
   activedirectory:
-    b2c:
-      client-id: ${CLIENT_ID}
-      client-secret: ${CLIENT_SECRET}
-      logout-success-url: http://localhost:8080
-      user-flows:
-        sign-up-or-sign-in: B2C_1_signuporsignin
-      base-uri: https://${TENANT_NAME}.b2clogin.com/${TENANT_NAME}.onmicrosoft.com/
-      login-flow: sign-up-or-sign-in
-      reply-url: http://localhost:8080/login/oauth2/code/
+    tenant-id: ${TENANT_ID}
+    # Specifies your App Registration's Application ID:
+    client-id: ${CLIENT_ID}
+    # Specifies your App Registration's secret key:
+    client-secret: ${CLIENT_SECRET}
