@@ -21,25 +21,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ProfileController {
 
-    private OAuth2AuthorizedClientService clientService;
-
-    @Autowired
-    public ProfileController(OAuth2AuthorizedClientService clientService) {
-        this.clientService = clientService;
-    }
-
     // https://spring.io/blog/2021/01/13/the-latest-on-azure-active-directory-integration
+    // https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide
     @GetMapping("/profile")
-    public ModelAndView profile(@AuthenticationPrincipal OidcUser principal) {
-        try {
-            ModelAndView mav = new ModelAndView("profile");
-            mav.addObject("tokenAttributes", getObjectAsJSON(principal.getAttributes()));
-            return mav;
-        } catch (Exception ex) {
-            ModelAndView mav = new ModelAndView("profile");
-            mav.addObject("jwt", ex.toString());
-            return mav;
-        }
+    public ModelAndView profile(
+            @AuthenticationPrincipal OidcUser principal,
+            @RegisteredOAuth2AuthorizedClient("calendar-api") OAuth2AuthorizedClient client) {
+
+        ModelAndView mav = new ModelAndView("profile");
+        mav.addObject("tokenAttributes", getObjectAsJSON(principal.getAttributes()));
+        mav.addObject("jwt", client.getAccessToken().getTokenValue());
+        return mav;
     }
 
     private String getObjectAsJSON(Object attributes) {
