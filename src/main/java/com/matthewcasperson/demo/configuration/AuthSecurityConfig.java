@@ -6,7 +6,6 @@ import com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -19,7 +18,7 @@ public class AuthSecurityConfig extends AADWebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/", "/login", "/*.js", "/*.css").permitAll()
-                .anyRequest().authenticated().and().oauth2Login();
+                .anyRequest().authenticated();
         // @formatter:on
     }
 }
