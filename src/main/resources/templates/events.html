@@ -25,7 +25,7 @@
         <table>
             <tr th:each="event: ${events}">
                 <td th:text="${event.subject}" />
-                <td th:text="${event.start.dateTime}" />
+                <td th:text="${event.start.formattedDateTime}" />
             </tr>
         </table>
     </main>
