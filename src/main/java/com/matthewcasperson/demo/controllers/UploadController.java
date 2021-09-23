@@ -18,8 +18,7 @@ import org.springframework.web.client.RestTemplate;
 public class UploadController {
 
     @GetMapping("/upload")
-    public String upload(@RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
-        System.out.println("\n" + client.getAccessToken().getTokenValue() + "\n");
+    public String upload() {
         return "upload";
     }
 
@@ -30,7 +29,6 @@ public class UploadController {
             @RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
 
         saveFile(client, fileName, body);
-
         return "upload";
     }
 
