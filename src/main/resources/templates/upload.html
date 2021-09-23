@@ -58,6 +58,10 @@
             credentials: 'include',
             method: 'PUT',
             body: fileContents.value
+        }).then(function() {
+            fileContents.value = "";
+            fileName.value = "";
+            window.alert("File uploaded successfully!");
         })
     }
 </script>
