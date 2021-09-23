@@ -20,7 +20,8 @@ import javax.websocket.server.PathParam;
 public class UploadController {
 
     @GetMapping("/upload")
-    public String upload() {
+    public String upload(@RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
+        System.out.println("\n" + client.getAccessToken().getTokenValue() + "\n");
         return "upload";
     }
 
@@ -28,22 +29,22 @@ public class UploadController {
     public String uploadFile(
             @PathParam("fileName") String fileName,
             @RequestBody String body,
-            @RegisteredOAuth2AuthorizedClient("storage-api") OAuth2AuthorizedClient client) {
+            @RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
 
         saveFile(client, fileName, body);
         return "audit";
     }
 
-    private void saveFile(OAuth2AuthorizedClient graph, String fileName, String body) {
+    private void saveFile(OAuth2AuthorizedClient client, String fileName, String body) {
         try {
-            if (null != graph) {
-                System.out.println("\n" + graph.getAccessToken().getTokenValue() + "\n");
+            if (null != client) {
+                System.out.println("\n" + client.getAccessToken().getTokenValue() + "\n");
 
                 RestTemplate restTemplate = new RestTemplate();
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.TEXT_PLAIN);
-                headers.set("Authorization", "Bearer " + graph.getAccessToken().getTokenValue());
+                headers.set("Authorization", "Bearer " + client.getAccessToken().getTokenValue());
                 HttpEntity<String> entity = new HttpEntity<>(body, headers);
 
                 restTemplate.exchange(
