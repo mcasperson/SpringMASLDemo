@@ -10,7 +10,6 @@ azure:
         scopes:
         - ${CALENDAR_SCOPE}
       azure-api:
-        on-demand: true
         scopes:
         - ${AZURE_SCOPE}
 
