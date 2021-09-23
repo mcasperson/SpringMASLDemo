@@ -140,3 +140,10 @@ input, textarea {
 button {
     float: right;
 }
+
+/*
+    Tables
+ */
+table, th, td {
+    border: 1px solid;
+}

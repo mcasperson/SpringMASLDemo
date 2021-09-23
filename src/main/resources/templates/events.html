@@ -24,6 +24,10 @@
     <main role="main" class="inner cover">
         <h2>Outlook Events</h2>
         <table>
+            <tr>
+                <td>Subject</td>
+                <td>Time</td>
+            </tr>
             <tr th:each="event: ${events}">
                 <td th:text="${event.subject}" />
                 <td th:text="${event.start.formattedDateTime}" />
