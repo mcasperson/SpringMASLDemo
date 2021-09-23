@@ -24,13 +24,12 @@ public class UploadController {
     }
 
     @PutMapping("/upload/{fileName}")
-    public String uploadFile(
+    public void uploadFile(
             @PathVariable("fileName") String fileName,
             @RequestBody String body,
             @RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
 
         saveFile(client, fileName, body);
-        return "upload";
     }
 
     private void saveFile(OAuth2AuthorizedClient client, String fileName, String body) {
