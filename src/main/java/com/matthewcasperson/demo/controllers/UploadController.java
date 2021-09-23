@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
@@ -27,7 +28,7 @@ public class UploadController {
 
     @PutMapping("/upload/{fileName}")
     public String uploadFile(
-            @PathParam("fileName") String fileName,
+            @PathVariable("fileName") String fileName,
             @RequestBody String body,
             @RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
 

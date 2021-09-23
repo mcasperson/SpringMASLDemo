@@ -42,5 +42,24 @@
 
 <script src="jquery-3.6.0.min.js"></script>
 <script src="bootstrap.min.js"></script>
+<script>
+    upload.onclick = function() {
+        if (!fileName.value || !fileName.value.trim()) {
+            window.alert("File name must be specified");
+            return;
+        }
+
+        if (!fileContents.value || !fileContents.value.trim()) {
+            window.alert("File contents must be defined");
+            return;
+        }
+
+        fetch("/upload/" + fileName.value, {
+            credentials: 'include',
+            method: 'PUT',
+            body: fileContents.value
+        })
+    }
+</script>
 </body>
 </html>
