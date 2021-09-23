@@ -32,7 +32,7 @@ public class UploadController {
             @RegisteredOAuth2AuthorizedClient("azure-api") OAuth2AuthorizedClient client) {
 
         saveFile(client, fileName, body);
-        return "audit";
+        return "upload";
     }
 
     private void saveFile(OAuth2AuthorizedClient client, String fileName, String body) {
