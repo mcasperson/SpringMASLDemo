@@ -129,3 +129,14 @@ body {
     word-break: break-all;
     white-space: pre-wrap;
 }
+
+/*
+    Form inputs
+ */
+input, textarea {
+    width: 100%
+}
+
+button {
+    float: right;
+}

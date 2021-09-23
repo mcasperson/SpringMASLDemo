@@ -15,18 +15,26 @@
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/profile">Profile</a>
-                <a class="nav-link active" href="/events">Events</a>
-                <a class="nav-link" href="/profile">Upload</a>
+                <a class="nav-link" href="/events">Events</a>
+                <a class="nav-link active" href="/profile">Upload</a>
             </nav>
         </div>
     </header>
 
     <main role="main" class="inner cover">
-        <h2>Outlook Events</h2>
+        <h2 class="cover-heading">Upload File</h2>
         <table>
-            <tr th:each="event: ${events}">
-                <td th:text="${event.subject}" />
-                <td th:text="${event.start.formattedDateTime}" />
+            <tr>
+                <td><strong>File Name</strong></td>
+                <td><input id="fileName"></td>
+            </tr>
+            <tr>
+                <td><strong>File Contents</strong></td>
+                <td><textarea id="fileContents"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="upload">Upload</button></td>
             </tr>
         </table>
     </main>
