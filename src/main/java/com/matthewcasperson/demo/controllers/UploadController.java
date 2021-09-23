@@ -1,4 +1,4 @@
-// src/main/java/com/matthewcasperson/demo/controllers/EventController.java
+// src/main/java/com/matthewcasperson/demo/controllers/UploadController.java
 
 package com.matthewcasperson.demo.controllers;
 
@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
-
-import javax.websocket.server.PathParam;
-
 @Controller
 public class UploadController {
 
