@@ -8,7 +8,7 @@ azure:
     authorization-clients:
       calendar-api:
         scopes:
-          - api://b4a92625-b0ea-4a45-bc6f-772d904ae8da/ReadMyCalendar
+          - ${SCOPE}
 
 logging:
   level:
