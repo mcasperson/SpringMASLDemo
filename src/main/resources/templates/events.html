@@ -13,7 +13,7 @@
     <header class="masthead mb-auto">
         <div class="inner">
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/profile">Profile</a>
                 <a class="nav-link active" href="/events">Events</a>
             </nav>
@@ -22,10 +22,12 @@
 
     <main role="main" class="inner cover">
         <h2>Outlook Events</h2>
-        <tr th:each="event: ${events}">
-            <td th:text="${event.start.dateTime}" />
-            <td th:text="${event.subject}" />
-        </tr>
+        <table>
+            <tr th:each="event: ${events}">
+                <td th:text="${event.subject}" />
+                <td th:text="${event.start.dateTime}" />
+            </tr>
+        </table>
     </main>
 </div>
 
