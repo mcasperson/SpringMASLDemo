@@ -8,11 +8,11 @@ azure:
     authorization-clients:
       calendar-api:
         scopes:
-          - ${CALENDAR_SCOPE}
+        - ${CALENDAR_SCOPE}
       azure-api:
         on-demand: true
         scopes:
-          - ${AZURE_SCOPE}
+        - ${AZURE_SCOPE}
 
 logging:
   level:
