@@ -6,9 +6,9 @@ azure:
     client-id: ${CLIENT_ID}
     client-secret: ${CLIENT_SECRET}
     authorization-clients:
-#      calendar-api:
-#        scopes:
-#        - ${CALENDAR_SCOPE}
+      calendar-api:
+        scopes:
+        - ${CALENDAR_SCOPE}
       azure-api:
         scopes:
         - ${AZURE_SCOPE}
