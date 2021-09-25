@@ -8,7 +8,7 @@ azure:
     authorization-clients:
       calendar-api:
         scopes:
-          - ${SCOPE}
+          - ${CALENDAR_SCOPE}
 
 logging:
   level:
