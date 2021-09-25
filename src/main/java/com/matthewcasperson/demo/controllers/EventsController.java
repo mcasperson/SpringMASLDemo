@@ -25,7 +25,7 @@ public class EventsController {
     private WebClient webClient;
 
     @GetMapping("/events")
-    public ModelAndView profile(
+    public ModelAndView events(
             @RegisteredOAuth2AuthorizedClient("calendar-api") OAuth2AuthorizedClient client) {
 
         List<GraphEvent> events = getEvents(client).value();
