@@ -1,4 +1,4 @@
-// src/main/java/com/matthewcasperson/demo/controllers/EventController.java
+// src/main/java/com/matthewcasperson/demo/controllers/AuditController.java
 
 package com.matthewcasperson.demo.controllers;
 
