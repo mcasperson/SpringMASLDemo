@@ -13,21 +13,27 @@
     <header class="masthead mb-auto">
         <div class="inner">
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/profile">Profile</a>
                 <a class="nav-link" href="/events">Events</a>
                 <a class="nav-link" href="/upload">Upload</a>
-                <a class="nav-link" href="/audit">Audit</a>
+                <a class="nav-link active" href="/audit">Audit</a>
             </nav>
         </div>
     </header>
 
     <main role="main" class="inner cover">
-        <h1 class="cover-heading">MSAL and Spring Demo</h1>
-        <p class="lead">A <a href="https://github.com/mcasperson/SpringMSALDemo">sample application</a> demonstrating how to integrate Spring Boot and the Microsoft Authentication Library (MSAL).</p>
-        <p class="lead">
-            <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
+        <h2>Audit Events</h2>
+        <table>
+            <tr>
+                <td>Message</td>
+                <td>Time</td>
+            </tr>
+            <tr th:each="auditItem: ${audit}">
+                <td th:text="${auditItem.message}" />
+                <td th:text="${auditItem.date}" />
+            </tr>
+        </table>
     </main>
 </div>
 
