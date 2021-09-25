@@ -3,8 +3,6 @@
 package com.matthewcasperson.demo.controllers;
 
 import com.matthewcasperson.demo.model.Audit;
-import com.matthewcasperson.demo.model.GraphEvent;
-import com.matthewcasperson.demo.model.GraphValues;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
